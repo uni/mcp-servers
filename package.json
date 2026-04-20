@@ -4,7 +4,7 @@
   "description": "MCP servers for: 1.enabling memory through a knowledge graph",
   "author": "Vitaly Gavriliuc",
   "type": "module",
-  "private": true,
+  "license": "MIT",
   "files": [
     "dist"
   ],
