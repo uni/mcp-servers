@@ -16,10 +16,12 @@ export const createRequestLogger =
   };
 
 export const authMiddleware = (req: any, res: any, next: any) => {
-  const apiKey = req.headers['x-api-key'];
+  if (process.env.ENV !== 'DEV') {
+    const apiKey = req.headers['x-api-key'];
 
-  if (!apiKey || apiKey !== process.env.API_KEY) {
-    return res.status(401).json({ error: 'Unauthorized: Invalid API Key' });
+    if (!apiKey || apiKey !== process.env.API_KEY) {
+      return res.status(401).json({ error: 'Unauthorized: Invalid API Key' });
+    }
   }
 
   next();
